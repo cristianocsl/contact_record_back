@@ -37,7 +37,7 @@ const validateFields = (contactInformation) => {
   validateFile(attachedFile);
 };
 
-module.exports.recordService = async (contactInformations) => {
+module.exports.recordContactService = async (contactInformations) => {
   validateFields(contactInformations);
   const payload = {
     ...contactInformations,
