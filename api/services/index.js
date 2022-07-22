@@ -5,7 +5,7 @@ const { EMPTY_FIELD, INVALID_EMAIL, INVALID_PHONE_NUMBER, INVALID_FILE_TYPE, INV
 
 const validateFile = (attachedFile) => {
   const fileRegex = /^.*\.(pdf|doc|docx|odt|txt)$/;
-  if (!fileRegex.test(attachedFile.name)) {
+  if (!fileRegex.test(attachedFile)) {
     throw INVALID_FILE_TYPE;
   }
   if (attachedFile.size > 5242880) {
@@ -14,7 +14,7 @@ const validateFile = (attachedFile) => {
 };
 
 const validatePhoneNumber = (phoneNumber) => {
-  const phoneNumberRegex = /^\([1-9]{2}\) [9]{0,1}[6-9]{1}[0-9]{3}-[0-9]{4}$/;
+  const phoneNumberRegex = /^[1-9]{2} [9]{0,1}[6-9]{1}[0-9]{3}-[0-9]{4}$/;
   if (!phoneNumberRegex.test(phoneNumber)) {
     throw INVALID_PHONE_NUMBER;
   }
