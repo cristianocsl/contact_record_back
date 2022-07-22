@@ -10,6 +10,8 @@
     },
     "rules": {
         "eslint-disable": 0,
-        "max-lines-per-function": ["error", 180]
+        "max-lines-per-function": ["error", 180],
+        "complexity": ["error", 6],
+        "max-len": ["error", { "code": 157 }]
     }
 }
