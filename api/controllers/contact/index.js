@@ -1,9 +1,9 @@
 const { CREATED } = require('http-status-codes').StatusCodes;
 const ip = require('ip');
-const { recordContactService } = require('../../services');
+const { recordContactService, getContactsService } = require('../../services');
 const { validateFileExtension } = require('../../validate');
 
-const recordContactController = async (req, res) => {
+module.exports.recordContactController = async (req, res) => {
   try {
     validateFileExtension(req.file);
     const { body, file: { path, size } } = req;
@@ -23,4 +23,11 @@ const recordContactController = async (req, res) => {
   }
 };
 
-module.exports = recordContactController;
+module.exports.getContactsController = async (req, res) => {
+  try {
+    const contacts = await getContactsService();
+    return res.status(200).json(contacts);
+  } catch (err) {
+    return res.status(err.code).json({ message: err.message });
+  }
+};
