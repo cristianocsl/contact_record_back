@@ -7,7 +7,6 @@ module.exports.recordContactService = async (contactInformations) => {
   const payload = {
     ...contactInformations,
     createdAt: format(new Date(), 'yyyy-MM-dd HH:mm:ss'),
-    senderIp: '',
   };
   const { _id } = await recordContactModel(payload);
   return { ...payload, _id };
