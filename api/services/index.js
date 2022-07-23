@@ -1,5 +1,5 @@
 const { format } = require('date-fns');
-const { recordContactModel } = require('../models/contact');
+const { recordContactModel, getContactsModel } = require('../models/contact');
 const { validateFields } = require('../validate');
 
 module.exports.recordContactService = async (contactInformations) => {
@@ -12,3 +12,5 @@ module.exports.recordContactService = async (contactInformations) => {
   const { _id } = await recordContactModel(payload);
   return { ...payload, _id };
 };
+
+module.exports.getContactsService = async () => getContactsModel();
