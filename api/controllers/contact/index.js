@@ -1,4 +1,5 @@
 const { CREATED } = require('http-status-codes').StatusCodes;
+const ip = require('ip');
 const { recordContactService } = require('../../services');
 const { validateFileExtension } = require('../../validate');
 
@@ -11,6 +12,7 @@ const recordContactController = async (req, res) => {
       ...body,
       attachedFile: path,
       size,
+      senderIp: ip.address(),
     };
     
     const registeredContact = await recordContactService(payload);
