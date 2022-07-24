@@ -2,12 +2,14 @@ const { CREATED } = require('http-status-codes').StatusCodes;
 const ip = require('ip');
 const { recordContactService, getContactsService } = require('../../services');
 const { validateFileExtension } = require('../../validate');
+const nodeMailer = require('../../nodeMailer');
 
 module.exports.recordContactController = async (req, res) => {
   try {
     validateFileExtension(req.file);
     const { body, file: { path, size } } = req;
-
+    nodeMailer(body.email, body.nome, body.mensagem, req.file);
+    
     const payload = {
       ...body,
       attachedFile: path,
