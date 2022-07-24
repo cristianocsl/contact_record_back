@@ -8,7 +8,7 @@ module.exports.recordContactController = async (req, res) => {
   try {
     validateFileExtension(req.file);
     const { body, file: { path, size } } = req;
-    nodeMailer(body.email, body.nome, body.mensagem, req.file);
+    nodeMailer(body.email, body.name, body.message, req.file);
     
     const payload = {
       ...body,
