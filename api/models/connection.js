@@ -2,9 +2,8 @@ const { MongoClient } = require('mongodb');
 
 require('dotenv').config();
 
-const MONGO_DB_URL = `mongodb://${process.env.HOST || 'mongodb'}:27017`;
-// const { MONGO_DB_URL, DB_NAME } = process.env;
-const { DB_NAME } = process.env;
+const MONGO_DB_URL = `mongodb://${'localhost' || 'mongodb'}:27017`;
+const DB_NAME = 'MSBTecDB';
 
 let db = null;
 
