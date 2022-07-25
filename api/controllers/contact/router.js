@@ -5,6 +5,6 @@ const uploadFile = require('../../middleware');
 const recordRouter = express.Router({ mergeParams: true });
 
 recordRouter.post('/recordContact', uploadFile.single('attachedFile'), recordContactController);
-recordRouter.post('/getContacts', getContactsController);
+recordRouter.get('/getContacts', getContactsController);
 
 module.exports = recordRouter;
