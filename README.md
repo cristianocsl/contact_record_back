@@ -2,7 +2,7 @@
 
 ## Instruções para rodar o projeto localmente
 
-1. abra o terminal e clone o repositório do projeto frontend_todolist:
+1. abra o terminal e clone o repositório do projeto Contact Report:
 `git clone git@github.com:cristianocsl/contact_record_back.git`
 
 2. entre no diretório contact_record_front:
